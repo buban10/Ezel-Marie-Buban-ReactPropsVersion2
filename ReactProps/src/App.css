@@ -1,0 +1,117 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 1rem;
+  text-align: center;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem; /* Reduced the gap between product cards */
+  flex-wrap: wrap;
+  padding: 1rem;
+}
+
+.product-card {
+  width: 220px; /* Reduced width for smaller product cards */
+  background-color: #fff;
+  border-radius: 16px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  text-align: center;
+  transition: transform 0.2s ease-in-out;
+  padding: 0.8rem; /* Reduced padding to make the card more compact */
+}
+
+.product-card:hover {
+  transform: translateY(-10px);
+}
+
+.product-card img {
+  width: 100%;
+  height: 250px; /* Reduced height for images */
+  object-fit: cover;
+  border-radius: 12px 12px 0 0;
+}
+
+.product-card h4 {
+  margin-top: 1rem;
+  font-size: 1rem; /* Slightly smaller font size */
+  color: #333;
+}
+
+.product-card p {
+  color: #555;
+  font-size: 0.85rem; /* Reduced font size for description */
+  margin: 0.5rem 0;
+}
+
+.quantity-control {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.8rem; /* Reduced gap between buttons */
+  margin-top: 1rem;
+}
+
+.quantity-control button {
+  padding: 0.4rem 0.8rem; /* Reduced padding for buttons */
+  background-color: #646cff;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem; /* Reduced font size for buttons */
+  transition: background-color 0.3s ease;
+}
+
+.quantity-control button:hover {
+  background-color: #5058d4;
+}
+
+/* Styling for disabled button (when quantity is 0) */
+.quantity-control button.disabled {
+  background-color: #bdbdbd;  /* Gray color */
+  cursor: not-allowed;
+}
+
+.quantity-control button:disabled {
+  background-color: #da4c4c;  /* Same gray color for disabled state */
+  color: #888;  /* Lighter text color */
+}
+
+.total {
+  margin-top: 1rem;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #333;
+}
+
+/* Position the global Add to Cart button */
+.add-to-cart-global {
+  position: fixed; /* Fixed position at the top right */
+  top: 10px;
+  right: 10px;
+  padding: 0.8rem 1.5rem; /* Reduced padding for smaller size */
+  background-color: #5dbe00;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem; /* Reduced font size */
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.add-to-cart-global:hover {
+  background-color: #4da700;
+}
+
+.cart-button:hover {
+  background-color: #fb8c00;
+}
+
+.cart-total {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333;
+}
