@@ -1,4 +1,3 @@
-// App.js
 import React, { useState } from 'react';
 import './App.css';
 import ProductList from './components/ProductList/ProductList';
@@ -8,6 +7,8 @@ function App() {
   const [matchaQty, setMatchaQty] = useState(0);
   const [chocolateQty, setChocolateQty] = useState(0);
   const [rockyRoadQty, setRockyRoadQty] = useState(0);
+
+  const [cart, setCart] = useState([]); // Track cart items
 
   const increaseQty = (product) => {
     if (product === 'capuccino') setCapuccinoQty(capuccinoQty + 1);
@@ -23,6 +24,11 @@ function App() {
     if (product === 'rockyRoad' && rockyRoadQty > 0) setRockyRoadQty(rockyRoadQty - 1);
   };
 
+  const addToCart = (product, quantity, price) => {
+    const newItem = { product, quantity, total: quantity * price };
+    setCart([...cart, newItem]); // Add product to cart
+  };
+
   return (
     <div className="container">
       <ProductList
@@ -31,6 +37,7 @@ function App() {
         description="This is Capuccino"
         rating={3.8}
         quantity={capuccinoQty}
+        price={5} // Price for Capuccino
         onIncrease={() => increaseQty('capuccino')}
         onDecrease={() => decreaseQty('capuccino')}
       />
@@ -41,6 +48,7 @@ function App() {
         description="This is Matcha"
         rating={4.8}
         quantity={matchaQty}
+        price={6} // Price for Matcha
         onIncrease={() => increaseQty('matcha')}
         onDecrease={() => decreaseQty('matcha')}
       />
@@ -51,6 +59,7 @@ function App() {
         description="This is Chocolate"
         rating={5.0}
         quantity={chocolateQty}
+        price={4.5} // Price for Chocolate
         onIncrease={() => increaseQty('chocolate')}
         onDecrease={() => decreaseQty('chocolate')}
       />
@@ -61,11 +70,19 @@ function App() {
         description="This is Rocky Road"
         rating={10}
         quantity={rockyRoadQty}
+        price={7} // Price for Rocky Road
         onIncrease={() => increaseQty('rockyRoad')}
         onDecrease={() => decreaseQty('rockyRoad')}
       />
+
+      {/* Global Add to Cart button */}
+      <button className="add-to-cart-global" onClick={() => alert(`Items in cart: ${cart.map(item => `${item.quantity} x ${item.product}`).join(', ')}`)}>
+        View Cart
+      </button>
     </div>
   );
 }
 
 export default App;
+
+
