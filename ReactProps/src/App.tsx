@@ -8,7 +8,7 @@ function App() {
   const [chocolateQty, setChocolateQty] = useState(0);
   const [rockyRoadQty, setRockyRoadQty] = useState(0);
 
-  const [cart, setCart] = useState([]); // Track cart items
+  const [cart, setCart] = useState([]); 
 
   const increaseQty = (product) => {
     if (product === 'capuccino') setCapuccinoQty(capuccinoQty + 1);
@@ -26,7 +26,7 @@ function App() {
 
   const addToCart = (product, quantity, price) => {
     const newItem = { product, quantity, total: quantity * price };
-    setCart([...cart, newItem]); // Add product to cart
+    setCart([...cart, newItem]); 
   };
 
   return (
@@ -37,7 +37,7 @@ function App() {
         description="This is Capuccino"
         rating={3.8}
         quantity={capuccinoQty}
-        price={5} // Price for Capuccino
+        price={5} 
         onIncrease={() => increaseQty('capuccino')}
         onDecrease={() => decreaseQty('capuccino')}
       />
@@ -48,7 +48,7 @@ function App() {
         description="This is Matcha"
         rating={4.8}
         quantity={matchaQty}
-        price={6} // Price for Matcha
+        price={6} 
         onIncrease={() => increaseQty('matcha')}
         onDecrease={() => decreaseQty('matcha')}
       />
@@ -59,7 +59,7 @@ function App() {
         description="This is Chocolate"
         rating={5.0}
         quantity={chocolateQty}
-        price={4.5} // Price for Chocolate
+        price={4.5} 
         onIncrease={() => increaseQty('chocolate')}
         onDecrease={() => decreaseQty('chocolate')}
       />
@@ -70,14 +70,14 @@ function App() {
         description="This is Rocky Road"
         rating={10}
         quantity={rockyRoadQty}
-        price={7} // Price for Rocky Road
+        price={7} 
         onIncrease={() => increaseQty('rockyRoad')}
         onDecrease={() => decreaseQty('rockyRoad')}
       />
 
-      {/* Global Add to Cart button */}
+      {}
       <button className="add-to-cart-global" onClick={() => alert(`Items in cart: ${cart.map(item => `${item.quantity} x ${item.product}`).join(', ')}`)}>
-        View Cart
+        Add to Cart
       </button>
     </div>
   );

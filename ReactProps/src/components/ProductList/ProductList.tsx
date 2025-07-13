@@ -3,10 +3,11 @@ import React from 'react';
 function ProductList(props) {
   const { title, imgURL, description, rating, quantity, price, onIncrease, onDecrease } = props;
 
-  // Calculate the total price for the product
+
+
   const totalPrice = price * quantity;
 
-  // Conditional class for the "-" button when quantity is 0
+
   const minusButtonClass = quantity === 0 ? 'disabled' : '';
 
   return (
@@ -16,12 +17,12 @@ function ProductList(props) {
       <p>{description}</p>
       <p>Rating: {rating}</p>
 
-      {/* Quantity Control */}
+      {}
       <div className="quantity-control">
         <button 
           onClick={onDecrease} 
           className={minusButtonClass}
-          disabled={quantity === 0}  // Disable the "-" button when quantity is 0
+          disabled={quantity === 0}  
         >
           -
         </button>
@@ -29,9 +30,9 @@ function ProductList(props) {
         <button onClick={onIncrease}>+</button>
       </div>
 
-      {/* Total Price */}
+      {}
       <div className="total">
-        <p>Total: ${totalPrice.toFixed(2)}</p>
+        <p>Total: Ᵽ{totalPrice.toFixed(2)}</p>
       </div>
     </div>
   );
